@@ -1,4 +1,4 @@
-# project1
+# project2
 # CẤU HÌNH NFS CHIA SẺ FILE TRÊN UBUNTU 18.04
 - Yêu cầu: 
   - Máy chủ ubuntuserver có địa chỉ ip `10.10.10.11/24`
