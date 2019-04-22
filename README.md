@@ -2,8 +2,8 @@
 # CẤU HÌNH NFS CHIA SẺ FILE TRÊN UBUNTU 18.04
 - Yêu cầu: 
   - Máy chủ ubuntuserver có địa chỉ ip `10.10.10.11/24`
-  - Client1 có địa chỉ ip `10.10.10.4/24`
-  - Client2 có địa chỉ ip `10.10.10.15/24`
+  - Client1 có địa chỉ ip `10.10.10.12/24`
+  - Client2 có địa chỉ ip `10.10.10.13/24`
  ## CẤU HÌNH NFS SERVER
  Bạn cần cài đặt gói nfs-kernel-server bằng cách gõ lệnh sau:
 **Bước 1: Cài đặt NFS Server**
@@ -27,8 +27,8 @@
 ```
 Tạo ra một dòng cho mỗi thư mục mà chúng ta dự định chia sẻ.
 ```sh
-share/testdata 10.10.10.4/24(rw,async,no_subtree_check,no_root_sqhash)
-share/testdata 10.10.10.15/24(rw,async,no_subtree_check,no_root_sqhash)
+share/testdata 10.10.10.12/24(rw,async,no_subtree_check,no_root_sqhash)
+share/testdata 10.10.10.13/24(rw,async,no_subtree_check,no_root_sqhash)
 ```
 -Trong đó, ý nghĩa của một số tùy chọn:
   - **rw**: Tùy chọn này cho phép máy tính client truy cập cả đọc và viết vào bộ đĩa (volume).
@@ -83,7 +83,7 @@ Bạn phải cấu hình /etc/fstab để lưu lại các kết nối từ xa đ
 ```
 – Thêm vào cấu hình như sau:
 ```sh
-#10.10.10.11:/share/testdat /storage/nfs/testdata nfs auto,nofail,notime,nolock,intr,tcp,actimeo=1800 0 0
+10.10.10.11:/share/testdat /storage/nfs/testdata nfs auto,nofail,notime,nolock,intr,tcp,actimeo=1800 0 0
 ```
 Khi đó, các máy client sẽ tự động gắn kết (mount) các phân vùng từ xa lúc khởi động.
 ## 5. Thử nghiệm
